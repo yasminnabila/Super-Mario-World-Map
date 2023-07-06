@@ -58,4 +58,27 @@ function initMap() {
       60.7,
     ],
   ];
+
+  for (let i = 0; i < markers.length; i++) {
+    const currentMarker = markers[i];
+
+    const marker = new google.maps.Marker({
+      position: { lat: currentMarker[1], lng: currentMarker[2] },
+      map,
+      title: currentMarker[0],
+      icon: {
+        url: currentMarker[3],
+        scaledSize: new google.maps.Size(currentMarker[4], currentMarker[5]),
+      },
+      animation: google.maps.Animation.DROP,
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: currentMarker[0],
+    });
+
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
+  }
 }

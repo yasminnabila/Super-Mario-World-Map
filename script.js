@@ -5,6 +5,8 @@ function initMap() {
     zoom: 18,
   });
 
+  // -6.124517563076635, 106.83824677394564
+
   const markers = [
     [
       "Yoshi's House",
